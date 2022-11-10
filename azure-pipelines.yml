@@ -1,14 +1,5 @@
 # Starter pipeline
-- task: Azure Extension for execution of Test under TTT@0
-  inputs:
-    HCIConnection: 'CW13.bmc.com'
-    HCIConnectionPort: '16196'
-    UserID: 'PINAWM1'
-    Password: 'Moab22'
-    PassTicket: 'passticket'
-    TestLocationPath: 'C:\AzureTestCase\Tests5\Scenarios'
-    CLIInstallationPath: 'C:\Topaz\WorkbenchCLI\'
-    Configuration: 'C:\AzureTestCase\TotalTestConfiguration'
+task: Azure Extension for execution of Test under TTT@0
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -17,6 +8,16 @@ trigger:
 - master
 
 pool:
+- task: Azure Extension for execution of Test under TTT@0
+  inputs:
+    HCIConnection: 'CW13.bmc.com'
+    HCIConnectionPort: '16196'
+    UserID: 'pinawm1'
+    Password: 'Moab22'
+    PassTicket: 'passticket'
+    TestLocationPath: 'C:\AzureTestCase\Tests5\Scenarios'
+    CLIInstallationPath: 'C:\Topaz\WorkbenchCLI\'
+    Configuration: 'C:\AzureTestCase\TotalTestConfiguration'
   name: default
 
 steps:
